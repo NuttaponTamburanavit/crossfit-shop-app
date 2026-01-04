@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Button from '@/components/atoms/button';
@@ -34,10 +35,30 @@ export default function ProductCard({
   rating = 0,
   isNew = false,
 }: ProductCardProps) {
-  const addItem = useCartStore((state) => state.addItem);
+  const { addItem, removeItem, items } = useCartStore();
+  const [isConfirmingRemove, setIsConfirmingRemove] = useState(false);
+  // mounted check for hydration safety since we access store items
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isInCart = mounted && items.some((item) => item.id === id);
 
   const handleAddToCart = () => {
     addItem({ id, name, price, image });
+  };
+
+  const handleRemoveClick = () => {
+    if (isConfirmingRemove) {
+      removeItem(id);
+      setIsConfirmingRemove(false);
+    } else {
+      setIsConfirmingRemove(true);
+      // Reset confirmation after 3 seconds if not clicked
+      setTimeout(() => setIsConfirmingRemove(false), 3000);
+    }
   };
 
   // Ensure consistent rendering
@@ -57,7 +78,7 @@ export default function ProductCard({
         hover: { y: -5 }
       }}
       transition={{ duration: 0.3 }}
-      className={cardStyles}
+      className={`${cardStyles} ${isInCart ? 'ring-2 ring-primary/50' : ''}`}
     >
       {/* Image Container */}
       <div className={imageContainerStyles.container}>
@@ -70,11 +91,23 @@ export default function ProductCard({
 
         {/* Badges */}
         <div className={badgeStyles.container}>
-          {isNew && <span className={badgeStyles.new}>NEW</span>}
+          {isInCart && (
+            <motion.span
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              className="bg-neutral-900 text-white px-3 py-1 text-xs font-bold rounded-full flex items-center gap-1"
+            >
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+              </svg>
+              IN CART
+            </motion.span>
+          )}
+          {isNew && !isInCart && <span className={badgeStyles.new}>NEW</span>}
           {discount > 0 && <span className={badgeStyles.discount}>-{discount}%</span>}
         </div>
 
-        {/* Quick Add Button */}
+        {/* Quick Add / Remove Button */}
         <motion.div
           variants={{
             initial: { opacity: 0, y: 20 },
@@ -83,9 +116,20 @@ export default function ProductCard({
           transition={{ duration: 0.2 }}
           className={imageContainerStyles.quickAdd}
         >
-          <Button onClick={handleAddToCart} variant="primary" size="sm" className="w-full">
-            Add to Cart
-          </Button>
+          {isInCart ? (
+            <Button
+              onClick={handleRemoveClick}
+              variant={isConfirmingRemove ? 'secondary' : 'outline'}
+              size="sm"
+              className={`w-full ${isConfirmingRemove ? 'bg-red-500 text-white hover:bg-red-600 border-red-500' : 'bg-white/90 backdrop-blur border-white/50'}`}
+            >
+              {isConfirmingRemove ? 'Confirm Remove?' : 'Remove from Cart'}
+            </Button>
+          ) : (
+            <Button onClick={handleAddToCart} variant="primary" size="sm" className="w-full">
+              Add to Cart
+            </Button>
+          )}
         </motion.div>
       </div>
 
