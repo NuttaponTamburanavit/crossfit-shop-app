@@ -5,7 +5,7 @@ export const cardStyles = 'group relative bg-white rounded-2xl overflow-hidden s
 export const imageContainerStyles = {
   container: 'relative aspect-square overflow-hidden bg-neutral-100',
   image: 'object-cover group-hover:scale-110 transition-transform duration-500',
-  quickAdd: 'absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300',
+  quickAdd: 'absolute bottom-3 left-3 right-3',
 };
 
 export const badgeStyles = {

@@ -40,14 +40,23 @@ export default function ProductCard({
     addItem({ id, name, price, image });
   };
 
-  const discount = originalPrice ? Math.round((1 - price / originalPrice) * 100) : 0;
+  // Ensure consistent rendering
+  const discount = (originalPrice && originalPrice > price)
+    ? Math.round((1 - price / originalPrice) * 100)
+    : 0;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial="initial"
+      whileInView="visible"
+      whileHover="hover"
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      variants={{
+        initial: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+        hover: { y: -5 }
+      }}
+      transition={{ duration: 0.3 }}
       className={cardStyles}
     >
       {/* Image Container */}
@@ -67,8 +76,11 @@ export default function ProductCard({
 
         {/* Quick Add Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileHover={{ opacity: 1, y: 0 }}
+          variants={{
+            initial: { opacity: 0, y: 20 },
+            hover: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.2 }}
           className={imageContainerStyles.quickAdd}
         >
           <Button onClick={handleAddToCart} variant="primary" size="sm" className="w-full">
