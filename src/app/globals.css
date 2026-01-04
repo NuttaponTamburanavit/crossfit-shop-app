@@ -1,6 +1,17 @@
 @import "tailwindcss";
 
+/* Primary Color Configuration (HSL-based for easy customization) */
 :root {
+  /* Default: Energy Red */
+  --primary-h: 0;
+  --primary-s: 85%;
+  
+  /* Primary color shades */
+  --primary: hsl(var(--primary-h), var(--primary-s), 50%);
+  --primary-dark: hsl(var(--primary-h), var(--primary-s), 40%);
+  --primary-light: hsl(var(--primary-h), var(--primary-s), 60%);
+  
+  /* Background & Foreground */
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -8,19 +19,83 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Primary color utility classes */
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-primary\/10 {
+  background-color: hsl(var(--primary-h), var(--primary-s), 50%, 0.1);
+}
+
+.bg-primary\/20 {
+  background-color: hsl(var(--primary-h), var(--primary-s), 50%, 0.2);
+}
+
+.bg-primary\/90 {
+  background-color: hsl(var(--primary-h), var(--primary-s), 50%, 0.9);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.border-primary\/30 {
+  border-color: hsl(var(--primary-h), var(--primary-s), 50%, 0.3);
+}
+
+.hover\:bg-primary:hover {
+  background-color: var(--primary);
+}
+
+.hover\:bg-primary\/90:hover {
+  background-color: hsl(var(--primary-h), var(--primary-s), 50%, 0.9);
+}
+
+.hover\:text-primary:hover {
+  color: var(--primary);
+}
+
+.focus\:ring-primary:focus {
+  --tw-ring-color: var(--primary);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
 }
