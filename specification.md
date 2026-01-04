@@ -110,7 +110,8 @@ crossfit-shop-app/
 │   │   │   ├── productGrid/
 │   │   │   ├── categorySlider/
 │   │   │   ├── heroSection/
-│   │   │   └── checkoutForm/
+│   │   │   ├── checkoutForm/
+│   │   │   └── searchModal/
 │   │   ├── templates/                # Page layouts
 │   │   │   ├── mainLayout/
 │   │   │   ├── authLayout/
@@ -283,15 +284,15 @@ describe('Button', () => {
 
 ```tsx
 // Clean import from barrel
-import Button from '@/components/atoms/Button';
+import Button from '@/components/atoms/button';
 
 // Multiple components from same level
-import Button from '@/components/atoms/Button';
-import Input from '@/components/atoms/Input';
-import Badge from '@/components/atoms/Badge';
+import Button from '@/components/atoms/button';
+import Input from '@/components/atoms/input';
+import Badge from '@/components/atoms/badge';
 
 // Usage
-<Button variant="primary" size="lg">Shop Now</Button>
+<Button variant="primary" size="lg">Buy Now</Button>
 ```
 
 ---
@@ -420,6 +421,37 @@ export const galleryTransitions = {
 
 ---
 
+## 🔍 Global Search Experience
+
+### Core Features
+- **Global Availability**: Accessible from anywhere via Header icon or triggers.
+- **Smart Triggers**:
+  - **Header**: Search icon (hidden on Homepage).
+  - **Hero Section**: "Search for gear..." fake input button.
+- **Rich Results**: Displays product cards with images, prices, and categories in a grid.
+- **Optimized**: Debounced input (300ms) for performance.
+
+### Search Functionality
+- **Multi-parameter Filtering**: Search matches against:
+  - Product Name
+  - Category
+  - Tags (metadata)
+- **Interactive Results**:
+  - Click product -> Navigates to Product Detail Page (PDP) & closes modal
+  - Empty query -> Shows "Popular Searches" quick links
+- **Navigation Control**:
+  - Close via "X" button
+  - Close via `Esc` key
+  - Close via backdrop click
+
+### UI/UX Design
+- **Backdrop**: Blur effect (`backdrop-blur-md`) to focus attention.
+- **Input**: Large, centered, high-contrast input field (`text-3xl`).
+- **Empty State**: Displays "Popular Searches" tags to guide users.
+- **Gallery**: Responsive grid for results (1 col mobile -> 3 col desktop).
+
+---
+
 ## 📄 Landing Page Sections
 
 ### 1. Hero Section
@@ -427,7 +459,7 @@ export const galleryTransitions = {
 - **Elements**:
   - Bold headline: "UNLOCK YOUR POTENTIAL"
   - Subheading: Brief value proposition
-  - CTA buttons: "Shop Now" / "Explore Collection"
+  - Search gear
   - Scroll indicator animation
 - **Animations**: Parallax background, text reveal on load
 

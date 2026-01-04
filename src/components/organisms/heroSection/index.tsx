@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Button from '@/components/atoms/button';
+import { useUIStore } from '@/store/useUIStore';
 import {
   sectionStyles,
   backgroundStyles,
@@ -59,7 +60,7 @@ export default function HeroSection() {
           apparel, and accessories designed for peak performance.
         </motion.p>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
@@ -69,6 +70,24 @@ export default function HeroSection() {
           <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
             Explore Collection
           </Button>
+        </motion.div> */}
+
+        {/* Hero Search Trigger */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.0 }}
+          className="mt-12 w-full max-w-md mx-auto"
+        >
+          <button
+            onClick={() => useUIStore.getState().setSearchOpen(true)}
+            className="w-full flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-4 text-white hover:bg-white/20 transition-all text-left group"
+          >
+            <svg className="w-5 h-5 mr-3 text-white/70 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <span className="text-white/70 group-hover:text-white transition-colors">Search for gear...</span>
+          </button>
         </motion.div>
       </motion.div>
 

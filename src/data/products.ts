@@ -3,6 +3,7 @@ import { Product } from '@/types/product';
 export const products: Product[] = [
   {
     id: '1',
+    slug: 'pro-training-barbell-20kg',
     name: 'Pro Training Barbell 20kg',
     description: 'Competition grade barbell for olympic lifting and powerlifting.',
     price: 299.99,
@@ -18,6 +19,7 @@ export const products: Product[] = [
   },
   {
     id: '2',
+    slug: 'crossfit-nano-x3-training-shoes',
     name: 'CrossFit Nano X3 Training Shoes',
     description: 'Versatile training shoes designed for high-intensity workouts.',
     price: 149.99,
@@ -31,6 +33,7 @@ export const products: Product[] = [
   },
   {
     id: '3',
+    slug: 'competition-kettlebell-set',
     name: 'Competition Kettlebell Set',
     description: 'Color-coded competition kettlebells for precise training.',
     price: 189.99,
@@ -44,6 +47,7 @@ export const products: Product[] = [
   },
   {
     id: '4',
+    slug: 'performance-tank-top',
     name: 'Performance Tank Top',
     description: 'Breathable, moisture-wicking fabric for maximum comfort.',
     price: 45.99,
@@ -58,6 +62,7 @@ export const products: Product[] = [
   },
   {
     id: '5',
+    slug: 'olympic-weight-plates-25kg',
     name: 'Olympic Weight Plates 25kg',
     description: 'Durable rubber bumper plates for safe dropping.',
     price: 129.99,
@@ -69,6 +74,7 @@ export const products: Product[] = [
   },
   {
     id: '6',
+    slug: 'leather-lifting-belt',
     name: 'Leather Lifting Belt',
     description: 'Premium leather belt for core support during heavy lifts.',
     price: 79.99,
@@ -82,6 +88,7 @@ export const products: Product[] = [
   },
   {
     id: '7',
+    slug: 'speed-jump-rope-pro',
     name: 'Speed Jump Rope Pro',
     description: 'High-speed bearing system for double-unders.',
     price: 34.99,
@@ -94,6 +101,7 @@ export const products: Product[] = [
   },
   {
     id: '8',
+    slug: 'compression-training-shorts',
     name: 'Compression Training Shorts',
     description: 'Supportive fit reduces muscle fatigue.',
     price: 54.99,
@@ -107,6 +115,7 @@ export const products: Product[] = [
   },
   {
     id: '9',
+    slug: 'gymnastics-grips',
     name: 'Gymnastics Grips',
     description: 'Protect your hands during pull-ups and muscle-ups.',
     price: 39.99,
@@ -119,6 +128,7 @@ export const products: Product[] = [
   },
   {
     id: '10',
+    slug: 'weighted-vest-20lbs',
     name: 'Weighted Vest 20lbs',
     description: 'Add resistance to your bodyweight movements.',
     price: 119.99,
@@ -130,6 +140,7 @@ export const products: Product[] = [
   },
   {
     id: '11',
+    slug: 'recovery-foam-roller',
     name: 'Recovery Foam Roller',
     description: 'Deep tissue massage for muscle recovery.',
     price: 24.99,
@@ -141,6 +152,7 @@ export const products: Product[] = [
   },
   {
     id: '12',
+    slug: 'protein-shaker-bottle',
     name: 'Protein Shaker Bottle',
     description: 'Leak-proof bottle with mixing ball.',
     price: 14.99,

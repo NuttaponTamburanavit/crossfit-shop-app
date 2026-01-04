@@ -3,19 +3,21 @@ import { persist } from 'zustand/middleware';
 
 export interface CartItem {
   id: string;
+  slug: string;
   name: string;
   price: number;
   image: string;
   quantity: number;
-  variant?: string;
+  size?: string;
+  color?: string;
 }
 
 interface CartState {
   items: CartItem[];
   isOpen: boolean;
-  addItem: (item: Omit<CartItem, 'quantity'>) => void;
-  removeItem: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
+  addItem: (item: CartItem) => void;
+  removeItem: (id: string, size?: string, color?: string) => void;
+  updateQuantity: (id: string, quantity: number, size?: string, color?: string) => void;
   clearCart: () => void;
   toggleCart: () => void;
   setCartOpen: (isOpen: boolean) => void;
@@ -31,32 +33,43 @@ export const useCartStore = create<CartState>()(
 
       addItem: (item) => {
         set((state) => {
-          const existingItem = state.items.find((i) => i.id === item.id);
+          const existingItem = state.items.find((i) => 
+            i.id === item.id && 
+            i.size === item.size && 
+            i.color === item.color
+          );
+          
           if (existingItem) {
             return {
               items: state.items.map((i) =>
-                i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+                (i.id === item.id && i.size === item.size && i.color === item.color)
+                  ? { ...i, quantity: i.quantity + item.quantity } 
+                  : i
               ),
             };
           }
-          return { items: [...state.items, { ...item, quantity: 1 }] };
+          return { items: [...state.items, item] };
         });
       },
 
-      removeItem: (id) => {
+      removeItem: (id, size, color) => {
         set((state) => ({
-          items: state.items.filter((item) => item.id !== id),
+          items: state.items.filter((item) => 
+            !(item.id === id && item.size === size && item.color === color)
+          ),
         }));
       },
 
-      updateQuantity: (id, quantity) => {
+      updateQuantity: (id, quantity, size, color) => {
         if (quantity <= 0) {
-          get().removeItem(id);
+          get().removeItem(id, size, color);
           return;
         }
         set((state) => ({
           items: state.items.map((item) =>
-            item.id === id ? { ...item, quantity } : item
+            (item.id === id && item.size === size && item.color === color)
+              ? { ...item, quantity } 
+              : item
           ),
         }));
       },

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Button from '@/components/atoms/button';
 import { useCartStore } from '@/store/useCartStore';
@@ -16,6 +17,7 @@ import {
 
 export interface ProductCardProps {
   id: string;
+  slug: string;
   name: string;
   price: number;
   originalPrice?: number;
@@ -27,6 +29,7 @@ export interface ProductCardProps {
 
 export default function ProductCard({
   id,
+  slug,
   name,
   price,
   originalPrice,
@@ -47,12 +50,12 @@ export default function ProductCard({
   const isInCart = mounted && items.some((item) => item.id === id);
 
   const handleAddToCart = () => {
-    addItem({ id, name, price, image });
+    addItem({ id, slug, name, price, image, quantity: 1 });
   };
 
   const handleRemoveClick = () => {
     if (isConfirmingRemove) {
-      removeItem(id);
+      removeItem(id, undefined, undefined);
       setIsConfirmingRemove(false);
     } else {
       setIsConfirmingRemove(true);
@@ -82,12 +85,14 @@ export default function ProductCard({
     >
       {/* Image Container */}
       <div className={imageContainerStyles.container}>
-        <Image
-          src={image}
-          alt={name}
-          fill
-          className={imageContainerStyles.image}
-        />
+        <Link href={`/products/${slug}`} className="block w-full h-full relative">
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className={imageContainerStyles.image}
+          />
+        </Link>
 
         {/* Badges */}
         <div className={badgeStyles.container}>

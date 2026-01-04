@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCartStore, CartItem } from '@/store/useCartStore';
 
 export default function CartDrawer() {
@@ -60,10 +61,10 @@ export default function CartDrawer() {
                 <div className="space-y-4">
                   {items.map((item) => (
                     <CartItemRow
-                      key={item.id}
+                      key={`${item.id}-${item.size}-${item.color}`}
                       item={item}
-                      onRemove={() => removeItem(item.id)}
-                      onUpdateQuantity={(qty) => updateQuantity(item.id, qty)}
+                      onRemove={() => removeItem(item.id, item.size, item.color)}
+                      onUpdateQuantity={(qty) => updateQuantity(item.id, qty, item.size, item.color)}
                     />
                   ))}
                 </div>
@@ -114,13 +115,18 @@ function CartItemRow({
       className="flex gap-4"
     >
       {/* Image */}
-      <div className="relative w-20 h-20 bg-neutral-100 rounded-lg overflow-hidden flex-shrink-0">
+      <Link href={`/products/${item.slug}`} className="relative w-20 h-20 bg-neutral-100 rounded-lg overflow-hidden flex-shrink-0 hover:opacity-80 transition-opacity">
         <Image src={item.image} alt={item.name} fill className="object-cover" />
-      </div>
+      </Link>
 
       {/* Details */}
       <div className="flex-1 min-w-0">
         <h4 className="font-medium text-neutral-900 truncate">{item.name}</h4>
+        <div className="text-xs text-neutral-500 mb-1">
+          {item.size && <span>Size: {item.size}</span>}
+          {item.size && item.color && <span className="mx-1">|</span>}
+          {item.color && <span>Color: {item.color}</span>}
+        </div>
         <p className="text-primary font-semibold">${item.price.toFixed(2)}</p>
 
         {/* Quantity */}

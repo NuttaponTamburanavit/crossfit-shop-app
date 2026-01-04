@@ -30,8 +30,8 @@
 - [x] Product listing page with grid layout
 - [x] Product filtering (category, price, size, color)
 - [x] Product sorting (price, popularity, newest)
-- [ ] Product search with autocomplete
-- [ ] Product detail page with image gallery
+- [x] Product search with autocomplete
+- [x] Product detail page with image gallery
 - [ ] Product variants (size, color) selection
 - [ ] Related products section
 - [ ] Product reviews display
@@ -66,6 +66,7 @@
 - [ ] Submit product review
 
 ### UI/UX Enhancements
+- [x] Global Search Modal & UX improvements
 - [ ] Scroll-reactive animations
 - [ ] Page transition animations
 - [ ] Loading states & skeletons

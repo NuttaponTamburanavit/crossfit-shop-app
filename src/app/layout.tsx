@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/organisms/header";
 import Footer from "@/components/organisms/footer";
 import CartDrawer from "@/components/organisms/cartDrawer";
+import SearchModal from "@/components/organisms/searchModal";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <CartDrawer />
+        <SearchModal />
       </body>
     </html>
   );
