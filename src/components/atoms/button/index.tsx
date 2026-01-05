@@ -1,10 +1,11 @@
 'use client';
 
-import { ButtonHTMLAttributes, forwardRef } from 'react';
-import { motion } from 'framer-motion';
+import { forwardRef, ReactNode } from 'react';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import { buttonStyles, loaderStyles } from './index.style';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends HTMLMotionProps<'button'> {
+  children?: ReactNode;
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;

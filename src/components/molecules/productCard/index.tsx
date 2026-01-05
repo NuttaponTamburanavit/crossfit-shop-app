@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Button from '@/components/atoms/button';
 import { useCartStore } from '@/store/useCartStore';
@@ -38,6 +39,7 @@ export default function ProductCard({
   rating = 0,
   isNew = false,
 }: ProductCardProps) {
+  const router = useRouter();
   const { addItem, removeItem, items } = useCartStore();
   const [isConfirmingRemove, setIsConfirmingRemove] = useState(false);
   // mounted check for hydration safety since we access store items
@@ -85,14 +87,14 @@ export default function ProductCard({
     >
       {/* Image Container */}
       <div className={imageContainerStyles.container}>
-        <Link href={`/products/${slug}`} className="block w-full h-full relative">
+        <div className="block w-full h-full relative">
           <Image
             src={image}
             alt={name}
             fill
             className={imageContainerStyles.image}
           />
-        </Link>
+        </div>
 
         {/* Badges */}
         <div className={badgeStyles.container}>
@@ -119,22 +121,34 @@ export default function ProductCard({
             hover: { opacity: 1, y: 0 }
           }}
           transition={{ duration: 0.2 }}
-          className={imageContainerStyles.quickAdd}
+          className={`${imageContainerStyles.quickAdd} flex flex-col gap-2`}
         >
-          {isInCart ? (
+          <div className="flex-1">
             <Button
-              onClick={handleRemoveClick}
-              variant={isConfirmingRemove ? 'secondary' : 'outline'}
+              onClick={() => router.push(`/products/${slug}`)}
+              variant="outline"
               size="sm"
-              className={`w-full ${isConfirmingRemove ? 'bg-red-500 text-white hover:bg-red-600 border-red-500' : 'bg-white/90 backdrop-blur border-white/50'}`}
+              className="w-full bg-white/90 backdrop-blur border-white/50 hover:bg-white hover:text-primary"
             >
-              {isConfirmingRemove ? 'Confirm Remove?' : 'Remove from Cart'}
+              Details
             </Button>
-          ) : (
-            <Button onClick={handleAddToCart} variant="primary" size="sm" className="w-full">
-              Add to Cart
-            </Button>
-          )}
+          </div>
+          <div className="flex-1">
+            {isInCart ? (
+              <Button
+                onClick={handleRemoveClick}
+                variant={isConfirmingRemove ? 'secondary' : 'outline'}
+                size="sm"
+                className={`w-full ${isConfirmingRemove ? 'bg-red-500 text-white hover:bg-red-600 border-red-500' : 'bg-white/90 backdrop-blur border-white/50'}`}
+              >
+                {isConfirmingRemove ? 'Confirm Remove?' : 'Remove from Cart'}
+              </Button>
+            ) : (
+              <Button onClick={handleAddToCart} variant="primary" size="sm" className="w-full">
+                Add to Cart
+              </Button>
+            )}
+          </div>
         </motion.div>
       </div>
 
