@@ -6,6 +6,7 @@ import ProductCard from '@/components/molecules/productCard';
 const products = [
   {
     id: '1',
+    slug: 'pro-training-barbell-20kg',
     name: 'Pro Training Barbell 20kg',
     price: 299.99,
     originalPrice: 399.99,
@@ -16,6 +17,7 @@ const products = [
   },
   {
     id: '2',
+    slug: 'crossfit-nano-x3-training-shoes',
     name: 'CrossFit Nano X3 Training Shoes',
     price: 149.99,
     image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600',
@@ -24,6 +26,7 @@ const products = [
   },
   {
     id: '3',
+    slug: 'competition-kettlebell-set',
     name: 'Competition Kettlebell Set',
     price: 189.99,
     originalPrice: 229.99,
@@ -33,6 +36,7 @@ const products = [
   },
   {
     id: '4',
+    slug: 'performance-tank-top',
     name: 'Performance Tank Top',
     price: 45.99,
     image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600',
@@ -42,6 +46,7 @@ const products = [
   },
   {
     id: '5',
+    slug: 'olympic-weight-plates-25kg',
     name: 'Olympic Weight Plates 25kg',
     price: 129.99,
     image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600',
@@ -50,6 +55,7 @@ const products = [
   },
   {
     id: '6',
+    slug: 'leather-lifting-belt',
     name: 'Leather Lifting Belt',
     price: 79.99,
     originalPrice: 99.99,
@@ -59,6 +65,7 @@ const products = [
   },
   {
     id: '7',
+    slug: 'speed-jump-rope-pro',
     name: 'Speed Jump Rope Pro',
     price: 34.99,
     image: 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?w=600',
@@ -68,6 +75,7 @@ const products = [
   },
   {
     id: '8',
+    slug: 'compression-training-shorts',
     name: 'Compression Training Shorts',
     price: 54.99,
     image: 'https://images.unsplash.com/photo-1562771379-eafdca7a02f8?w=600',
