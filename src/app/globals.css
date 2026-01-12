@@ -5,12 +5,12 @@
   /* Default: Energy Red */
   --primary-h: 0;
   --primary-s: 85%;
-  
+
   /* Primary color shades */
   --primary: hsl(var(--primary-h), var(--primary-s), 50%);
   --primary-dark: hsl(var(--primary-h), var(--primary-s), 40%);
   --primary-light: hsl(var(--primary-h), var(--primary-s), 60%);
-  
+
   /* Background & Foreground */
   --background: #ffffff;
   --foreground: #171717;

@@ -1,3 +1,8 @@
+export interface ProductSpecification {
+  group: string;
+  items: { label: string; value: string }[];
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -16,6 +21,12 @@ export interface Product {
   sizes?: string[];
   colors?: string[];
   tags?: string[];
+  specifications?: ProductSpecification[];
+  features?: string[];
+  materials?: string[];
+  fullDescription?: string;
+  warranty?: string;
+  shipping?: string;
 }
 
 export interface FilterState {

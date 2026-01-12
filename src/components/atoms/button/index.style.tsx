@@ -11,7 +11,7 @@ const baseStyles = 'inline-flex items-center justify-center font-semibold rounde
 const variants = {
   primary: 'bg-primary text-white hover:bg-primary-dark focus:ring-primary',
   secondary: 'bg-neutral-800 text-white hover:bg-neutral-700 focus:ring-neutral-500',
-  outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary',
+  outline: 'border-2 border-primary text-primary hover:text-white focus:ring-primary',
   ghost: 'text-neutral-600 hover:bg-neutral-100 focus:ring-neutral-300',
 };
 

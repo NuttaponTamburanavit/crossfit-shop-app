@@ -9,13 +9,79 @@ export const products: Product[] = [
     price: 299.99,
     originalPrice: 399.99,
     image: 'https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=800',
+    images: [
+      'https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=800',
+      'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800',
+      'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800',
+      'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800',
+      'https://images.unsplash.com/photo-1434682881908-b43d0467b798?w=800',
+    ],
     category: 'Weightlifting',
-    rating: 5,
-    reviews: 124,
+    rating: 4.7,
+    reviews: 10,
     isNew: true,
     isBestSeller: true,
     stock: 15,
-    tags: ['barbell', 'olympic', 'heavy'],
+    tags: ['barbell', 'olympic', 'heavy', 'chrome', 'professional'],
+    fullDescription: `The Pro Training Barbell 20kg is engineered for serious athletes who demand competition-grade equipment. Featuring a high-tensile steel alloy construction with hard chrome plating, this barbell delivers exceptional durability and performance for both Olympic lifting and powerlifting movements.
+
+The dual knurl marks follow IWF (International Weightlifting Federation) standards, ensuring proper hand placement for competition lifts. The aggressive yet comfortable knurling pattern provides superior grip without tearing up your hands during high-volume training sessions.
+
+Equipped with bronze composite bushings, this barbell offers smooth, consistent rotation that's essential for Olympic lifts like cleans, snatches, and jerks. The medium whip rating makes it versatile enough for both dynamic Olympic movements and heavy powerlifting exercises.
+
+Built to withstand the rigors of daily training, this barbell has a tested weight capacity of 1000kg (2200lbs) and a tensile strength of 190,000 PSI. Whether you're setting PRs in your home gym or equipping a commercial facility, the Pro Training Barbell delivers professional performance that will last for years.`,
+    specifications: [
+      {
+        group: 'Dimensions & Weight',
+        items: [
+          { label: 'Total Length', value: '2200mm (86.6")' },
+          { label: 'Loadable Sleeve Length', value: '415mm (16.3")' },
+          { label: 'Bar Weight', value: '20kg (44lbs)' },
+          { label: 'Shaft Diameter', value: '28mm' },
+          { label: 'Sleeve Diameter', value: '50mm' },
+        ],
+      },
+      {
+        group: 'Materials & Construction',
+        items: [
+          { label: 'Material', value: 'High-tensile steel alloy' },
+          { label: 'Finish', value: 'Hard chrome plating' },
+          { label: 'Knurling', value: 'Dual knurl marks (IWF standard)' },
+          { label: 'Bushings', value: 'Bronze composite bushings' },
+          { label: 'End Caps', value: 'Snap ring collar system' },
+        ],
+      },
+      {
+        group: 'Performance',
+        items: [
+          { label: 'Weight Capacity', value: '1000kg (2200lbs)' },
+          { label: 'Tensile Strength', value: '190,000 PSI' },
+          { label: 'Whip Rating', value: 'Medium' },
+          { label: 'Rotation', value: 'Smooth bushing rotation' },
+          { label: 'Use Case', value: 'Olympic lifting & Powerlifting' },
+        ],
+      },
+    ],
+    features: [
+      'IWF standard dual knurl marks for proper hand placement',
+      'Hard chrome finish resists rust and corrosion',
+      'Bronze composite bushings for smooth, consistent rotation',
+      'Medium whip rating ideal for both Olympic and powerlifting',
+      'Aggressive knurling pattern for superior grip',
+      '1000kg (2200lbs) tested weight capacity',
+      '190,000 PSI tensile strength for maximum durability',
+      'Standard 50mm Olympic sleeve diameter',
+      'Snap ring collar system for secure plate loading',
+      'Professional-grade construction for home or commercial use',
+    ],
+    materials: [
+      'High-tensile steel alloy shaft',
+      'Hard chrome plating finish',
+      'Bronze composite bushings',
+      'Steel snap ring collars',
+    ],
+    warranty: '5-year manufacturer warranty against defects in materials and workmanship. Does not cover normal wear and tear or damage from misuse.',
+    shipping: 'Free shipping on orders over $200. This item ships via freight carrier. Delivery time: 5-7 business days. Signature required upon delivery.',
   },
   {
     id: '2',

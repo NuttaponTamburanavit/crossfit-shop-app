@@ -128,7 +128,7 @@ export default function ProductCard({
               onClick={() => router.push(`/products/${slug}`)}
               variant="outline"
               size="sm"
-              className="w-full bg-white/90 backdrop-blur border-white/50 hover:bg-white hover:text-primary"
+              className="w-full bg-white/90 backdrop-blur border-white/50 hover:bg-white"
             >
               Details
             </Button>

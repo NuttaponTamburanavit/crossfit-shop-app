@@ -108,6 +108,9 @@ crossfit-shop-app/
 │   │   │   ├── header/
 │   │   │   ├── footer/
 │   │   │   ├── productGrid/
+│   │   │   ├── productSpecs/
+│   │   │   ├── productTabs/
+│   │   │   ├── reviewSystem/
 │   │   │   ├── categorySlider/
 │   │   │   ├── heroSection/
 │   │   │   ├── checkoutForm/
@@ -772,42 +775,6 @@ NEXT_PUBLIC_APP_URL=
 ALLOWED_ORIGINS=
 ```
 
----
-
-## 📋 MVP Features Checklist
-
-### Phase 1: Core (Week 1-3)
-- [ ] Project setup & configuration
-- [ ] Landing page with all sections
-- [ ] Product listing & detail pages
-- [ ] Category navigation
-- [ ] Search functionality
-- [ ] User authentication
-- [ ] Shopping cart (Zustand)
-- [ ] Responsive design
-
-### Phase 2: Commerce (Week 4-5)
-- [ ] Checkout flow
-- [ ] Stripe payment integration
-- [ ] Order management
-- [ ] Email notifications
-- [ ] User account dashboard
-
-### Phase 3: Enhancement (Week 6-7)
-- [ ] Wishlist functionality
-- [ ] Product reviews & ratings
-- [ ] Advanced filtering & sorting
-- [ ] Related products
-- [ ] Admin dashboard (basic)
-
-### Phase 4: Polish (Week 8)
-- [ ] Performance optimization
-- [ ] SEO implementation
-- [ ] Analytics integration
-- [ ] Security audit
-- [ ] Testing & QA
-
----
 
 ## 📚 Additional Resources
 

@@ -32,9 +32,11 @@
 - [x] Product sorting (price, popularity, newest)
 - [x] Product search with autocomplete
 - [x] Product detail page with image gallery
-- [ ] Product variants (size, color) selection
-- [ ] Related products section
-- [ ] Product reviews display
+- [x] Product variants (size, color) selection
+- [x] Related products section
+- [x] Product reviews display
+- [x] Product specifications display
+- [x] Product information tabs (Description, Specs, Reviews)
 
 ### Cart & Checkout
 - [x] Shopping cart (Zustand store)
